@@ -1,0 +1,21 @@
+\section{Concluding remarks} \label{sec:conclude}
+
+This tutorial paper delineates the process of integrating RV monitors into DTs via the DTaaS platform.
+Its objective to inspire tool providers within the formal methods community by illustrating the challenges of utilizing RV tools from the perspective of DT developers.
+The aim is to bridge the gap between the formal methods and DT communities, ultimately enhancing the adoption rate of formal methods within DTs.
+
+The incubator \cite{Feng&21c} is selected as the use case, tasked with the responsibility of monitoring the behavior of an energy saver component, to be activated in response to anomalies.
+The tutorial is exemplified through five distinct use cases, demonstrating the application of two RV tools with alternative configurations to address the defined problem, encompassing various stages of the DT's lifecycle.
+
+Initially, the paper demonstrates the utilization of NuRV to construct a basic FMI-based monitor, facilitating the validation of the DT's behavior pre-deployment.
+Subsequently, considering the service-oriented architecture of the incubator, the paper illustrates the application of wrapper logic around the generated FMU monitor to integrate it into the deployed DT.
+An alternative approach is then explored, showcasing how NuRV can be executed natively as a service via an ORBit2 integration.
+This approach offers the advantage of operating as an external service, thereby reducing coupling with the DT.
+
+Finally, the tutorial demonstrates the application of TeSSLa for RV through two examples.
+The first example mirrors the previous approaches, leveraging TeSSLa's telegraf integration to expose itself as an external service to the DT.
+In the second example, the monitor's role is expanded, as it not only identifies and reports property violations but also actively directs the PT to enter the energy saving mode.
+Therefore, rather than merely reporting discrepancies, the monitor assumes a controlling function over the PT.
+
+While the integration of tools into the DTaaS platform has been demonstrated using NuRV and TeSSLa, the underlying concepts extend beyond RV tools and can be applied to any type of tool pertinent to the management and deployment of DTs.
+Hopefully, the contents of this tutorial prove to be helpful to tool providers seeking their tool to be utilized within a DT setting.

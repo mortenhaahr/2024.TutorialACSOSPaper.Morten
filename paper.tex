@@ -1,0 +1,96 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, fit}
+\usepackage{siunitx}
+\usepackage{soul}
+\usepackage{listings}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\input{preamble}
+\begin{document}
+\include{commands}
+
+\title{Runtime Verification of Autonomous Systems utilizing Digital Twins as a Service
+    \thanks{%
+        The work presented here is partially supported by the RoboSAPIENS project funded by the European Commission's Horizon Europe programme under grant agreement number 101133807, the O5G-N-IoT project, funded by the German Federal Ministry for Economic Affairs and Climate Action, due to a resolution of the German Bundestag,  % O5G-N-IoT corresponds to Iven, Leucker and Vosteen from Lübeck 
+        and the SM4RTENANCE project under grant no. 101123423. % Eduard
+    }
+}
+
+\author{
+\IEEEauthorblockN{Morten~Haahr~Kristensen\IEEEauthorrefmark{1},
+Alberto~Bonizzi\IEEEauthorrefmark{2},
+Cl\'{a}udio~Gomes\IEEEauthorrefmark{1},
+Simon~Thrane~Hansen\IEEEauthorrefmark{3},
+Carlos~Isasa\IEEEauthorrefmark{1},\\
+Hannes~Iven\IEEEauthorrefmark{4},
+Eduard~Kamburjan\IEEEauthorrefmark{5},
+Peter~Gorm~Larsen\IEEEauthorrefmark{1},
+Martin~Leucker\IEEEauthorrefmark{4},
+Prasad~Talasila\IEEEauthorrefmark{1},\\
+Valdemar~Trøjgård~Tang\IEEEauthorrefmark{1},
+Stefano~Tonetta\IEEEauthorrefmark{2},
+Lars~B.~Vosteen\IEEEauthorrefmark{4},
+Thomas~Wright\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}\textit{Department of Electrical and Computer Engineering} \\
+    \textit{Aarhus University}\\
+    \textit{Aarhus, Denmark} \\
+    \{mhk, claudio.gomes, cisasa, pgl, prasad.talasila, valdemar.tang, thomas.wright\}@ece.au.dk}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}\textit{Fondazione Bruno Kessler} \\
+    \textit{Trento, Italy}\\
+    \{bonizzi,tonettas\}@fbk.eu}
+\IEEEauthorblockA{\IEEEauthorrefmark{3}\textit{Interdisciplinary Centre for Security, Reliability and Trust} \\
+    \textit{University of Luxembourg}\\
+    \textit{Luxembourg} \\
+    simon.hansen@uni.lu}
+\IEEEauthorblockA{\IEEEauthorrefmark{4}\textit{Institute for Software Engineering and Programming Languages} \\
+    \textit{Universität zu Lübeck}\\
+    \textit{Lübeck, Germany} \\
+    hannes.iven@student.uni-luebeck.de, \{leucker,vosteen\}@isp.uni-luebeck.de}
+\IEEEauthorblockA{\IEEEauthorrefmark{5}\textit{Department of Informatics,  Norway,} \\
+    \textit{University of Oslo,}\\
+    \textit{Oslo, Norway} \\
+    eduard@ifi.uio.no}
+}
+
+\maketitle
+
+\begin{abstract}
+    Autonomous systems (AS) enable systems to adapt to drastic and unprecedented environmental changes, a capability that can be complimented through the utilization of Digital Twins (DTs).
+    However, the additional capabilities of AS come at the cost of explainability, as the expanding adaptation space complicates reasoning about the system's behavior.
+    For certain types of systems, it is crucial to ensure that specific properties are upheld despite the system's autonomous behavior.
+    To facilitate the monitoring of these properties, we propose the use of Runtime Verification (RV).
+    This tutorial demonstrates the integration of RV tools into a Digital Twins as a Service (DTaaS) platform to monitor and verify the behavior of AS in real-time.
+    By exploring various methods to incorporate RV tools within a DT context, the tutorial aims to advance the application of RV technologies in autonomic computing and self-adaptive system design.
+    Specifically, we demonstrate how the behavior of a self-configuring DT is verified utilizing RV.
+    This is accomplished through the DTaaS platform, which supports seemless deployment of DT-based AS.
+\end{abstract}
+
+\begin{IEEEkeywords}
+    Self-adaptivity, runtime verification, digital twins, monitor, TeSSLa, NuRV
+\end{IEEEkeywords}
+
+\input{sections/introduction}%
+\input{sections/background.tex}%
+\input{sections/methodology.tex}%
+\input{sections/examples/introduction.tex}
+\input{sections/examples/incubator.tex}
+\input{sections/examples/nurv.tex}
+\input{sections/examples/tessla.tex}
+\input{sections/conclusion}%
+
+\bibliographystyle{splncs04}
+\bibliography{bibliographies/common.bib}
+
+\end{document}

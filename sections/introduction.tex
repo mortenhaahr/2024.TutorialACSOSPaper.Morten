@@ -1,0 +1,31 @@
+\section{Introduction}
+
+%\morten{Would be good if we started talking about FM-relevant stuff earlier}
+Formal methods used to be a popular topic for European external research funding with numerous projects in the previous century including RAISE \cite{RAISE92a},  PROSPER \cite{10.1007/3-540-46419-0_7} and RODIN \cite{Abrial&10}. Unfortunately, there is less focus on research on formal methods today from funding agencies such as EU.
+On the other hand, topics such as Digital Twins (DTs) have emerged as a popular and promising technology that allows for real-time monitoring, configuration, analysis, verification, and simulation of physical systems \cite{Feng&21c}.
+In this manuscript, we define a DT as a collection of services that add value by monitoring and automatically reconfiguring an existing system under consideration (the Physical Twin, PT) \cite{Feng2021}. However, the construction of DTs is expensive if they need to be constructed from scratch every time.
+This provides an opportunity for the formal methods community to gain adoption of their verification tools.
+%Such services make use of models and data (historical and real time) in order to accomplish this goal.
+
+%As the ambitions for DTs soar with the gradual adoption within both academic and industrial domains, their complexity will follow, which highlights two needs: systematic methods for the construction of DTs, and frameworks that support such methods and promote reuse of DT assets 
+%\claudio{help needed: this is obvious to me, but if you can find a citation to support it, that would be great. Maybe we can cite \cite{Boettjer2023} but I'm not sure we do that claim there}.
+
+The community has responded to this need with DT frameworks such as Eclipse Ditto\footnote{\url{https://eclipse.dev/ditto/}}.
+However, as surmised in \cite{Gil2024}, such frameworks, many of which
+originate from the IoT domain and are still under active development, focus on facilitating the integration of services, but lack the support for the implementation of the services themselves.
+Addressing this challenge, one proposed solution is the platform termed ``Digital Twins as a Service'' (DTaaS) \cite{Talasila&23}, which in addition to promoting easy integration of DT services, also facilitates the reuse of DT service components, termed \emph{DT assets}.
+% (\hl{Data, Model, Tools, and Services}.
+%, all detailed later 
+%\prasad{This paragraph only talks about services where as composition of DT asset needs to be the focus. The methodology section will discuss details of all reusable assets.}).
+However, in order to use the tool effectively, two goals must be fulfilled: 
+\begin{enumerate}
+    \item users need to decompose their DT services into potentially reusable DT assets, and 
+    \item tool providers need to be able to make their tool available in the platform so that it can be used in the implementation of DT services.
+\end{enumerate}%
+%
+The current tutorial focuses on how existing Runtime Verification (RV) frameworks have a major opportunity in either being assets or providing services inside the DTaaS platform. In the process, we aim that readers will become familiar with how DT services are deployed, as well as gain practical insight into how to build DT monitoring services.
+The discussion will be supported by concrete examples, spanning from the incubator case study \cite{Feng2021,Feng2022}, focusing on both monitoring as well as PT reconfiguration. 
+
+%\claudio{HELP NEEDED: What does the lifecycle concept have to do with the above?}
+
+The tutorial is structured as follows: \cref{sec:background}  introduces the main background concepts we assume the audience is already somewhat familiar with. Afterward, \cref{sec:methodology} provides a methodology suggesting how one can incorporate RV technology inside the DTaaS platform. Then \cref{sec:examples} presents five distinct examples showcasing the implementation of monitoring in the DTaaS platform using two different RV frameworks. Finally, \cref{sec:conclude} provides a few concluding remarks about the potential presented here.

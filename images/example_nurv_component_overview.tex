@@ -1,0 +1,28 @@
+% This figure is based on the one for TeSSLa
+\begin{tikzpicture}[
+	    node distance=.5cm,
+	    module/.style={draw, minimum width=2cm, minimum height=1cm, align=center},
+	    connection/.style={->, >=stealth}
+	]
+	% Nodes
+	\node[module] (pt) {Physical Twin};
+	\node[module, right=of pt] (mqtt) {RabbitMQ-Server};
+    \node[module, right=of mqtt] (dt) {Digital Twin};
+	\node[module, above=of mqtt] (rabbitmq) {NuRV-Client\\RabbitMQ-Client};
+	% \node[module, right=of rabbitmq] (orbit) {Monitor-Client};
+	\node[module, right=of rabbitmq] (nurv) [right=3cm] {NuRV};
+	% Correctly defining the container for NuRV and Connector with a name
+	\node[draw, dashed, fit=(rabbitmq) (nurv), inner sep=8pt] (container) {};
+	% Connections
+	\draw[connection] (pt) -- (mqtt);
+	\draw[connection] (mqtt) -- (pt);
+	\draw[connection] (dt) -- (mqtt);
+	\draw[connection] (mqtt) -- (dt);
+	\draw[connection] (mqtt) -- (rabbitmq);
+	\draw[connection] (rabbitmq) -- (mqtt);
+	% \draw[connection] (orbit) -- (rabbitmq);
+	% \draw[connection] (rabbitmq) -- (orbit);
+	% \draw[connection] (orbit) -- (nurv);
+	\draw[connection] (nurv) -- (rabbitmq);
+	\draw[connection] (rabbitmq) -- (nurv) node[midway,above] {CORBA};;
+\end{tikzpicture}

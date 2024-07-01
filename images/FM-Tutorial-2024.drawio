@@ -1,0 +1,177 @@
+<mxfile host="Electron" modified="2024-03-06T16:48:08.832Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/15.8.7 Chrome/91.0.4472.164 Electron/13.6.2 Safari/537.36" etag="lhyqSxORKZHUIJqnlcC1" compressed="false" version="15.8.7" type="device">
+  <diagram id="F8yg2ASXbgerVoqRoJiE" name="methodology">
+    <mxGraphModel dx="2206" dy="1529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-0" />
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-1" parent="oB-XBdc3Bayu-PGhTvvg-0" />
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-50" value="&lt;font color=&quot;#ff8000&quot;&gt;&lt;span style=&quot;font-size: 17px&quot;&gt;&lt;b&gt;Illustrations for RV Tool Integration Methodology&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="oB-XBdc3Bayu-PGhTvvg-1" vertex="1">
+          <mxGeometry x="75" y="40" width="435" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-49" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;NOTE: &lt;/b&gt;The scenario given in the table fit the &quot;software as a service&quot; pattern where one instance of RV service is used by many DTs&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry x="100" y="1000" width="1120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-53" value="" style="group" vertex="1" connectable="0" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry x="80.00000000000023" y="100" width="1359.9999999999998" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-21" value="" style="group;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1" connectable="0">
+          <mxGeometry x="559.9999999999998" y="90" width="320" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-6" value="&amp;nbsp;Digital Twin" style="rounded=1;whiteSpace=wrap;html=1;align=left;fontSize=16;" parent="oB-XBdc3Bayu-PGhTvvg-21" vertex="1">
+          <mxGeometry x="80" y="100" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-7" value="RV service asset as Internal Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" parent="oB-XBdc3Bayu-PGhTvvg-21" vertex="1">
+          <mxGeometry x="178" y="111.25" width="130" height="68.75" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=16;" parent="oB-XBdc3Bayu-PGhTvvg-21" source="oB-XBdc3Bayu-PGhTvvg-9" target="oB-XBdc3Bayu-PGhTvvg-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-9" value="RV Properties" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" parent="oB-XBdc3Bayu-PGhTvvg-21" vertex="1">
+          <mxGeometry x="197" y="25" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-2" value="&amp;nbsp; Digital Twin" style="rounded=1;whiteSpace=wrap;html=1;align=left;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1">
+          <mxGeometry x="258.9999999999998" y="205" width="200" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-3" value="RV tool asset" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1">
+          <mxGeometry x="358.9999999999998" y="220" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" source="oB-XBdc3Bayu-PGhTvvg-4" target="oB-XBdc3Bayu-PGhTvvg-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-4" value="RV Properties" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1">
+          <mxGeometry x="358.9999999999998" y="120" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-11" value="&lt;b style=&quot;font-size: 16px&quot;&gt;&lt;u style=&quot;font-size: 16px&quot;&gt;Tool&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1">
+          <mxGeometry x="293.9999999999998" y="60" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-0" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;Integration Type&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="14.999999999999773" y="150" width="165" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-12" value="&lt;b style=&quot;font-size: 16px&quot;&gt;&lt;u style=&quot;font-size: 16px&quot;&gt;Internal Service&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1">
+          <mxGeometry x="659.9999999999998" y="60" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-17" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px&quot;&gt;Description&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="7V7eXeTrs0aTXvsBe4CI-53" vertex="1">
+          <mxGeometry x="19.999999999999773" y="403" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-4" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#67AB9F;" edge="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1" y="44" as="sourcePoint" />
+            <mxPoint x="1357.9999999999998" y="47" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-16" value="&lt;div style=&quot;text-align: left; font-size: 16px;&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;The DT is run within user workspace&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 16px;&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;br style=&quot;font-size: 16px;&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 16px;&quot;&gt;&lt;u style=&quot;font-size: 16px;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Two possible scenarios:&lt;/font&gt;&lt;/u&gt;&lt;br style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;1) RV tool helps evaluate some parts or all of a model&lt;/span&gt;&lt;br style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;2) RV tool generates single model that is evaluated with some other tool (ex: NuRV generates FMU that is evaluated by Maestro)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="259.9999999999998" y="363" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-17" value="&lt;div style=&quot;text-align: left ; font-size: 16px&quot;&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The services is available to only one DT.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The service is managed by DT.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The service is accessible only using TCP/IP-based protocols.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;The service runs within user workspace&lt;/li&gt;&lt;li&gt;Useful for distributed DTs&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="649.9999999999998" y="333" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-34" value="&lt;b style=&quot;font-size: 16px&quot;&gt;&lt;u style=&quot;font-size: 16px&quot;&gt;External Service&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="1049.9999999999998" y="60" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-35" value="" style="group;fontSize=16;" vertex="1" connectable="0" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="1049.9999999999998" y="120" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-36" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;Digital Twin" style="rounded=1;whiteSpace=wrap;html=1;align=left;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-35">
+          <mxGeometry x="20" y="75" width="210" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-37" value="RV Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-35">
+          <mxGeometry x="120" width="110" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=16;" edge="1" parent="7V7eXeTrs0aTXvsBe4CI-35" source="7V7eXeTrs0aTXvsBe4CI-39" target="7V7eXeTrs0aTXvsBe4CI-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-39" value="RV Properties" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-35">
+          <mxGeometry y="6.25" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-40" value="Proxy" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-35">
+          <mxGeometry x="130" y="90.63" width="90" height="43.75" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=16;" edge="1" parent="7V7eXeTrs0aTXvsBe4CI-35" source="7V7eXeTrs0aTXvsBe4CI-37" target="7V7eXeTrs0aTXvsBe4CI-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-44" value="&lt;div style=&quot;text-align: left ; font-size: 16px&quot;&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The services is available to only one DT.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The service is either managed by DTaaS or external service providers.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The service is accessible only using TCP/IP-based protocols.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Useful for distributed DTs&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="1059.9999999999998" y="323" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-45" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#67AB9F;" edge="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="540" as="sourcePoint" />
+            <mxPoint x="1359.9999999999998" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-46" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;NOTE: &lt;/b&gt;The three scenarios given in the table fit the &quot;singleton design pattern&quot; where only one instance of RV asset is used within a DT&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry x="14.999999999999773" width="1120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-48" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#67AB9F;" edge="1" parent="7V7eXeTrs0aTXvsBe4CI-53">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint y="300" as="sourcePoint" />
+            <mxPoint x="1359.9999999999998" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-29" value="&lt;font style=&quot;font-size: 18px&quot;&gt;&lt;b&gt;Integration Type&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry x="120" y="1240" width="165" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-31" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#67AB9F;" edge="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="144.00000000000023" y="1650" as="sourcePoint" />
+            <mxPoint x="784" y="1650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-32" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px&quot;&gt;Description&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry x="125" y="1520" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-33" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#67AB9F;" edge="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="1070" as="sourcePoint" />
+            <mxPoint x="780" y="1070" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-50" value="&lt;div style=&quot;text-align: left ; font-size: 16px&quot;&gt;&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The services is available to many DTs.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The DTs can belong to different users.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The service is either managed by DTaaS or external service providers.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;font-size: 16px&quot;&gt;The service is accessible only using TCP/IP-based protocols.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Useful for distributed DTs&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry x="345" y="1460" width="345" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-51" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#67AB9F;" edge="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="144.00000000000023" y="1430" as="sourcePoint" />
+            <mxPoint x="784" y="1430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-49" value="" style="group" parent="oB-XBdc3Bayu-PGhTvvg-1" vertex="1" connectable="0">
+          <mxGeometry x="345" y="1131" width="250" height="269.99" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-25" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;Digital Twin&lt;sub&gt;1&lt;/sub&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="oB-XBdc3Bayu-PGhTvvg-49" vertex="1">
+          <mxGeometry x="20" y="75" width="210" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-26" value="RV Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="oB-XBdc3Bayu-PGhTvvg-49" vertex="1">
+          <mxGeometry x="120" width="100" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="oB-XBdc3Bayu-PGhTvvg-49" source="oB-XBdc3Bayu-PGhTvvg-28" target="oB-XBdc3Bayu-PGhTvvg-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-28" value="RV Properties" style="rounded=1;whiteSpace=wrap;html=1;" parent="oB-XBdc3Bayu-PGhTvvg-49" vertex="1">
+          <mxGeometry y="6.25" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-30" value="Proxy" style="rounded=1;whiteSpace=wrap;html=1;" parent="oB-XBdc3Bayu-PGhTvvg-49" vertex="1">
+          <mxGeometry x="125" y="90.63" width="90" height="43.75" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="oB-XBdc3Bayu-PGhTvvg-49" source="oB-XBdc3Bayu-PGhTvvg-26" target="oB-XBdc3Bayu-PGhTvvg-30" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-46" value="&amp;nbsp; &amp;nbsp; &amp;nbsp;Digital Twin&lt;sub&gt;2&lt;/sub&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="oB-XBdc3Bayu-PGhTvvg-49" vertex="1">
+          <mxGeometry x="20" y="194.99" width="210" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-47" value="Proxy" style="rounded=1;whiteSpace=wrap;html=1;" parent="oB-XBdc3Bayu-PGhTvvg-49" vertex="1">
+          <mxGeometry x="120" y="210.62" width="90" height="43.75" as="geometry" />
+        </mxCell>
+        <mxCell id="oB-XBdc3Bayu-PGhTvvg-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="oB-XBdc3Bayu-PGhTvvg-49" source="oB-XBdc3Bayu-PGhTvvg-26" target="oB-XBdc3Bayu-PGhTvvg-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="26" />
+              <mxPoint x="250" y="233" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7V7eXeTrs0aTXvsBe4CI-54" value="&lt;b style=&quot;font-size: 16px&quot;&gt;&lt;u style=&quot;font-size: 16px&quot;&gt;External Service&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="oB-XBdc3Bayu-PGhTvvg-1">
+          <mxGeometry x="345" y="1091" width="230" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
