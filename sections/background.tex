@@ -1,35 +1,4 @@
 \section{Background}\label{sec:background}
-%
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.9\textwidth]{images/DTaaS-architecture.pdf}
-    \caption{Software architecture of the DTaaS software platform. This diagram follows the conventions of the C4 model.}
-    \label{fig:dtaas-architecture}
-\end{figure}%
-%
-\subsection{Digital Twins as a Service}
-The DTaaS platform is a collaborative platform to build, use, and share DTs. \cref{fig:dtaas-architecture} shows the software architecture of DTaaS. It is a microservices-based architecture with dedicated software containers\footnote{Container is a software component at level-2 of the C4 model.} for DT assets, user workspaces, platform services, a front-end website, and service router.
-
-The separation of concerns is a well-established software engineering principle.
-Use of it in the context of DTs is likely to yield significant benefits. One of the architectural principles used in the development of DTaaS is to conceive DTs as composed of reusable assets. These reusable assets separate the functionality provided by DTs into their constituent parts, i.e., DT assets.
-The data, models~\cite{Zambrano&22}, tools~\cite{qi2021enabling}, services~\cite{budiardjo2021digital,robles2023opentwins} and ready to use DTs~\cite{aziz2023distributed} have been identified as reusable assets of DTs.
-The DT Assets software container provides an interface to perform create, reuse, update, and delete operations on DT assets stored within the DTaaS.
-% These DT assets can divided into two categories - private and common.
-% Private assets are manageable by their owner whereas common assets are manageable by all users. The users can collaborate at the level of DT assets by sharing them as common assets.
-%\morten{Commented out part about public/private assets as it is unimportant to tool providers}
-
-All users have private workspaces in which they can build and use DTs.
-Within the context of DTaaS, the creation of DT assets is part of the build phase of DTs.
-The workflows involved in building DTs are different from using DTs~\cite{Prasad&21a}. Many DT platforms are dedicated to either building or using DTs but not both. In contrast, DTaaS strives to support both workflows.
-The user workspaces access DT assets as a regular part of the filesystem.
-All workspaces have access to the Internet and WWW thereby enabling the integration of DTs running inside workspaces with external software systems and PTs.
-
-The platform services are the most often used DT services common across DTs and users. The communication, data storage, visualization, monitoring, and alerts are the most frequently used common services~\cite{qi2021enabling}.
-All these services are supported in the DTaaS using RabbitMQ and MQTT (communication), InfluxDB and MongoDB (data storage), and Grafana (monitoring and alerts).
-Additionally, it is possible to host private services accessible to a selected number of users. These services include the run-time services provided by TeSSLa and NuRV.
-
-% The front-end website acts as the user interface while the service router acts as a gateway to all the software containers. The OAuth2 service of Gitlab is used to provide user authorisation to the DTaaS\simon{Do we need to mention OAuth2?}.
-% \morten{No. Outcommented it.}
 
 \subsection{Runtime Verification}
 
@@ -67,6 +36,38 @@ The Temporal Stream-based Specification Language (TeSSLa) framework\footnote{\ur
 
 TeSSLa provides extensive libraries and supports the creation of macros. These macros allow users to define custom operations, simplifying the specification of complex behaviors and increasing the accessibility of the language. TeSSLa also supports the generation of detailed output streams, including statistical data with precise event timestamps, and allows integration with monitoring tools developed in modern programming languages such as Rust and Scala. Its integration with the metrics collection agent Telegraf~\cite{TT-Connector} contributes to its effectiveness in real-world applications.
 At its core, TeSSLa's strength lies in its ability to map input data to meaningful outputs, which is essential for real-time system monitoring and informed decision-making in areas such as DT technologies.
+
+\subsection{Digital Twins as a Service}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{images/DTaaS-architecture.pdf}
+    \caption{Software architecture of the DTaaS software platform. This diagram follows the conventions of the C4 model.\morten{Consider if needed}}
+    \label{fig:dtaas-architecture}
+\end{figure}%
+
+
+The DTaaS platform is a collaborative platform to build, use, and share DTs. \cref{fig:dtaas-architecture} shows the software architecture of DTaaS. It is a microservices-based architecture with dedicated software containers\footnote{Container is a software component at level-2 of the C4 model.} for DT assets, user workspaces, platform services, a front-end website, and service router.
+
+The separation of concerns is a well-established software engineering principle.
+Use of it in the context of DTs is likely to yield significant benefits. One of the architectural principles used in the development of DTaaS is to conceive DTs as composed of reusable assets. These reusable assets separate the functionality provided by DTs into their constituent parts, i.e., DT assets.
+The data, models~\cite{Zambrano&22}, tools~\cite{qi2021enabling}, services~\cite{budiardjo2021digital,robles2023opentwins} and ready to use DTs~\cite{aziz2023distributed} have been identified as reusable assets of DTs.
+The DT Assets software container provides an interface to perform create, reuse, update, and delete operations on DT assets stored within the DTaaS.
+% These DT assets can divided into two categories - private and common.
+% Private assets are manageable by their owner whereas common assets are manageable by all users. The users can collaborate at the level of DT assets by sharing them as common assets.
+%\morten{Commented out part about public/private assets as it is unimportant to tool providers}
+
+All users have private workspaces in which they can build and use DTs.
+Within the context of DTaaS, the creation of DT assets is part of the build phase of DTs.
+The workflows involved in building DTs are different from using DTs~\cite{Prasad&21a}. Many DT platforms are dedicated to either building or using DTs but not both. In contrast, DTaaS strives to support both workflows.
+The user workspaces access DT assets as a regular part of the filesystem.
+All workspaces have access to the Internet and WWW thereby enabling the integration of DTs running inside workspaces with external software systems and PTs.
+
+The platform services are the most often used DT services common across DTs and users. The communication, data storage, visualization, monitoring, and alerts are the most frequently used common services~\cite{qi2021enabling}.
+All these services are supported in the DTaaS using RabbitMQ and MQTT (communication), InfluxDB and MongoDB (data storage), and Grafana (monitoring and alerts).
+Additionally, it is possible to host private services accessible to a selected number of users. These services include the run-time services provided by TeSSLa and NuRV.
+
+% The front-end website acts as the user interface while the service router acts as a gateway to all the software containers. The OAuth2 service of Gitlab is used to provide user authorisation to the DTaaS\simon{Do we need to mention OAuth2?}.
+% \morten{No. Outcommented it.}
 
 \subsection{FMI-based Co-simulation}
 \label{sc:fmi}

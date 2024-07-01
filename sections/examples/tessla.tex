@@ -8,7 +8,7 @@
 %\morten{Streamlined subsection/subsubsection structure. Removed intro text (now included in section 4.0)}
 
 As an alternative to NuRV, the RV tool TeSSLa can be utilized for monitoring the DT properties.
-Similar to the example presented in~\cite{TT-Connector}, the monitor consists of three parts (see Fig.~\ref{fig:architecture-diagram}).
+Similar to the example presented in~\cite{TT-Connector}, the monitor consists of three parts (see \cref{fig:architecture-diagram}).
 At its core, the TeSSLa monitor processes input streams and produces output streams, but is not itself capable of integrating them into a larger system context.
 A helper function (Connector) is compiled to handle the streams by connecting TeSSLa streams to sockets with which external tools can interact.
 Telegraf provides an additional layer of flexibility by adding
@@ -21,7 +21,7 @@ Telegraf provides an additional layer of flexibility by adding
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/TeSSLa-integration.pdf}
+	\includegraphics[width=\columnwidth]{images/TeSSLa-integration.pdf}
 	\caption{Overview of components involved with the TeSSLA passive and active monitors.}
 	\label{fig:architecture-diagram}
 \end{figure}%
@@ -29,7 +29,7 @@ Telegraf provides an additional layer of flexibility by adding
 The \texttt{create} script prepares the system by ensuring that the necessary tools and software are installed and configured.
 It installs Java, Rust and Telegraf on the system, clones the repository for the incubator DT example\footnote{\url{https://github.com/INTO-CPS-Association/example_digital-twin_incubator?tab=readme-ov-file\#running-the-digital-twin}} and downloads the necessary files for the TeSSLa-Telegraf Connector\footnote{\url{https://git.tessla.io/telegraf/tessla-telegraf-connector/-/blob/master/Release/tessla-telegraf-connector.zip}}. Two files, a TeSSLa specification and a Telegraf configuration, must be provided by the user.
 
-A TeSSLa specification suitable for this scenario (shown in Fig.~\ref{fig:tessla_spec_passive}) monitors two key states of the incubator: whether the lid is open and whether the energy saving mode is used, which are passed to the TeSSLa monitor via different event streams.
+A TeSSLa specification suitable for this scenario (shown in \cref{fig:tessla_spec_passive}) monitors two key states of the incubator: whether the lid is open and whether the energy saving mode is used, which are passed to the TeSSLa monitor via different event streams.
 The helper function \lstinline{raisingDelay} delays any change from \lstinline{false} to \lstinline{true} by three time steps without affecting changes from \lstinline{true} to \lstinline{false}.
 This function is used to define an internal data stream \lstinline{critical} that represents when the energy saving mode is expected to be active.
 If it is not, an \lstinline{alert} stream is set to \lstinline{true}.
@@ -84,7 +84,7 @@ To use TeSSLa as a monitor to directly control the PT, the TeSSLa specification 
 
 To adapt the TeSSLa specification to control the energy saver mode instead of monitoring, the energy saver status is no longer needed as an input and the delayed signal can be provided as an output stream to switch on the energy saver if the lid is still open. As only the rising edge is delayed, the energy saving mode is switched off as soon as the lid is closed again.
 
-The notable change in the Telegraf configuration is the line shown in Fig.~\ref{fig:telegraf_json_transformation} in the AMQP output plugin, which translates the boolean value for controlling the energy saving mode into the JSON format required by the incubator. It uses the JSONata\footnote{\url{https://jsonata.org/}} transformation style.
+The notable change in the Telegraf configuration is the line shown in \cref{fig:telegraf_json_transformation} in the AMQP output plugin, which translates the boolean value for controlling the energy saving mode into the JSON format required by the incubator. It uses the JSONata\footnote{\url{https://jsonata.org/}} transformation style.
 By adding this post-processing step to Telegraf\footnote{
 	Telegraf first introduced the JSON transformation feature in version 1.24, which has not yet been widely distributed to package repositories.
 }, the user is able to change the formatting or desired temperature setting in the running system by changing the configuration without recompiling the monitor or losing its internal state.%

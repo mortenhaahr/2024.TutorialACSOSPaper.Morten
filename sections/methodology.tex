@@ -9,17 +9,20 @@ In this section, we present different ways of creating DTs and integrating the m
 \label{sec:dt-integration}
 
 Each DT asset, that is managed inside DTaaS, is a reusable component falling into one of the following categories:
-\begin{description}
-	\item[Data:] a DT asset that provides data from the PT (a data source) or consumes data (a data sink) from a DT. The data asset can have its origins in two different places. The first source of data is PT which can either be a real one, or a mock. The mock PTs help with the DT development. The second source of data is the environment in which PT operates. Similar to PT, the environment data can come from sensing the environment around PT or a mock version of the environment.
-	\item[Model:] describes the physical behavior of the PT. The models can be physics-based, numerical, data-driven, co-simulation, or a combination thereof. Both PT and DT will have their models. While the PT models are used for product development, DT models are used for instantiating digital replicas of the PT. It is advantageous to use the same model for both PT and DT but is often not possible primarily due to: 1) the lack of availability of the same model among all users, 2) divergent technical needs needing different models, 3) modeling software not being able to create models usable inside DTs.
-	\item[Tool:] a software tool that can be used to create, evaluate, and analyze a model. Tools tend to be more reusable than models. For example, software tools such as Matlab\footnote{\url{https://mathworks.com}} can generate and evaluate models of different types (physics, numerical, co-simulation, etc.). The tools can also be used to perform in-time generation of models. In this case, the actual DT models are generated from a model configuration file when the DT is about to be executed. Some of the RV tools fit into this category because these RV tools generate monitoring at the start of executing DT.
-	\item[Service:] provides a well-defined functionality over inter-process communication or computer network. Each service runs as one or more operating system processes accessible over an application programming interface (API). A service is reusable by all eligible consumers of that service. Within the context of DTs, services are used to satisfy concurrency and external integration needs. A DT performing run-time monitoring might send alerts to users or other external services (such as quality control audit software).
-\end{description}%
+
+\textbf{Data:} a DT asset that provides data from the PT (a data source) or consumes data (a data sink) from a DT. The data asset can have its origins in two different places. The first source of data is PT which can either be a real one, or a mock. The mock PTs help with the DT development. The second source of data is the environment in which PT operates. Similar to PT, the environment data can come from sensing the environment around PT or a mock version of the environment.
+
+\textbf{Model:} describes the physical behavior of the PT. The models can be physics-based, numerical, data-driven, co-simulation, or a combination thereof. Both PT and DT will have their models. While the PT models are used for product development, DT models are used for instantiating digital replicas of the PT. It is advantageous to use the same model for both PT and DT but is often not possible primarily due to: 1) the lack of availability of the same model among all users, 2) divergent technical needs needing different models, 3) modeling software not being able to create models usable inside DTs.
+
+\textbf{Tool:} a software tool that can be used to create, evaluate, and analyze a model. Tools tend to be more reusable than models. For example, software tools such as Matlab\footnote{\url{https://mathworks.com}} can generate and evaluate models of different types (physics, numerical, co-simulation, etc.). The tools can also be used to perform in-time generation of models. In this case, the actual DT models are generated from a model configuration file when the DT is about to be executed. Some of the RV tools fit into this category because these RV tools generate monitoring at the start of executing DT.
+
+\textbf{Service:} provides a well-defined functionality over inter-process communication or computer network. Each service runs as one or more operating system processes accessible over an application programming interface (API). A service is reusable by all eligible consumers of that service. Within the context of DTs, services are used to satisfy concurrency and external integration needs. A DT performing run-time monitoring might send alerts to users or other external services (such as quality control audit software).
+
 %
 \begin{figure}[]
 	\centering
-	\includegraphics[width=1.0\textwidth]{images/assets-relationship.pdf}
-	\caption{A class diagram for DT. The diagram illustrates the composition of data, models, tools, and services to form a DT.}
+	\includegraphics[width=\columnwidth]{images/assets-relationship.pdf}
+	\caption{A class diagram for DT. The diagram illustrates the composition of data, models, tools, and services to form a DT. \morten{Consider if needed}}
 	\label{fig:dt-class-diagram}
 \end{figure}%
 %
@@ -31,36 +34,30 @@ The RV tool providers need to provide configuration templates for their RV tools
 It is important to remember that the class relationships shown in the \cref{fig:dt-class-diagram} can follow all variations of class associations. The actual class relationships shown in the figure reflect the examples being presented in this tutorial. The DT has an association type relationship with data coming from both PT and its environment. The DT class has composition type of relationship with Model, and Tool classes. The services are only aggregated by the DT class. In the case of services that are reusable simultaneously across multiple DTs, aggregation is the most appropriate class relationship. Similarly, in the case of any assets whose instances are only used exclusively within a DT, the relationship necessarily is that of composition. The models and tools need to be instantiated uniquely for each DT and thus they both tend to have composition type relationship with their DTs.
 In addition, there is also a dependency relationship between the assets themselves, especially among services and tools. Some tools can also be run as services which will be showcased in the examples below.
 
-A PT goes through multiple lifecycle phases [Ref...] necessitating the support for lifecycle phases within DTs. Certain research communities use design-manufacture-operate-recycle phases as representative lifecycle phases for a PT [Ref...]. This tutorial illustrates the use of RV tools on DTs during the operational phase. Thus only the \emph{create}, \emph{execute} and \emph{terminate} lifecycle phases are being illustrated. Two different kinds of activities are undertaken in the create phase: 1) creation of models, monitors if any 2) creation of execution environment by installing the necessary dependencies.
+A PT goes through multiple lifecycle phases necessitating the support for lifecycle phases within DTs. Certain research communities use design-manufacture-operate-recycle phases as representative lifecycle phases for a PT. This tutorial illustrates the use of RV tools on DTs during the operational phase. Thus only the \emph{create}, \emph{execute} and \emph{terminate} lifecycle phases are being illustrated. Two different kinds of activities are undertaken in the create phase: 1) creation of models, monitors if any 2) creation of execution environment by installing the necessary dependencies.
 The execution phase includes the instantiation of DT and its use. The DT is available for interaction and the monitors are active in this phase. Finally, the terminate phase includes the termination of DT execution and revocation of all resources allocated to the terminated DT.
-
 
 \subsection{General Techniques for Monitor Integration}
 Several approaches exist for integrating RV monitors into DTs, dependent upon the capabilities of the underlying RV tool.%\prasad{Only the NuRV generates monitors. The TeSSLa takes monitoring properties and works as is without generating a separate monitor.}
 Consequently, certain monitors may offer greater flexibility and require less effort to integrate from the perspective of DT developers.
 Regardless of the approach, a monitor instance must be established and linked to each twin instance (DT asset) for monitoring individual properties.
 The differentiating factor lies in whether the monitor is exposed as a service and who manages its lifecycle.
-We distinguish the following approaches:%
-%
-\begin{description}
-	\item[\methodone:] The RV tool, below just called ``tool'', is published as a reusable asset for the platform that generates a monitor instance used within a twin instance.
-		%\prasad{"The tool" is being used to mean RV tool. There is also another kind of tool that is used for executing models. It is probably best to make this distinction upfront.} clarified
-		The tool merely generates the monitor instance, which afterward is completely inside the twin instance, meaning their life cycles are tied together.
-		%\prasad{there is no dedicated monitor instance} reworded
-	\item[\methodtwo:]
-		The tool is published as a reusable service that is instantiated from a twin instance.
-		Each twin instance manages its monitor instance as an internal service.
-	\item[\methodthree:]
-		The tool is published as a reusable service that is instantiated and managed outside of twin instances.
-		The twin instance uses it as an external service.
-		When the twin instance finishes, the monitor service continues to be active. Any future twin instances can reuse the same external service.
-\end{description}
+We distinguish the following approaches:
+
+\textbf{\methodone:} The RV tool, below just called ``tool'', is published as a reusable asset for the platform that generates a monitor instance used within a twin instance.		The tool merely generates the monitor instance, which afterward is completely inside the twin instance, meaning their life cycles are tied together.
+
+\textbf{\methodtwo:} The tool is published as a reusable service that is instantiated from a twin instance.
+Each twin instance manages its monitor instance as an internal service.
+
+\textbf{\methodthree:} The tool is published as a reusable service that is instantiated and managed outside of twin instances.
+The twin instance uses it as an external service.
+When the twin instance finishes, the monitor service continues to be active. Any future twin instances can reuse the same external service.
 
 In the following, we describe each possibility in detail before providing a guide on deciding which approach to take.
 
 \subsubsection{Runtime Verification as a \methodone}
 In this scenario, the RV tool is invoked to generate the monitor when the twin instance is created -- once for each property that the twin instance requires to be monitored.
-Each invocation creates one reusable monitor, which is packaged as a binary, for example, a Functional Mock-Up Unit.\prasad{FMUs contain more than binaries. Perhaps a better word?} \morten{Open to suggestions. Must also be changed further down then}\prasad{can't think of any. Perhaps we just keep the existing text.}
+Each invocation creates one reusable monitor, which is packaged as a binary, for example, a Functional Mock-Up Unit.
 The binary is then sent to the twin instance -- it is the task of the twin instance to integrate the monitor instance into its application.
 
 As a consequence, the platform itself is unaware of the monitor instance -- it is handled completely within the twin instance -- which makes this option the most lightweight when it comes
@@ -147,7 +144,7 @@ Finally, the purpose must be considered. Tight interaction, such as control, ben
 %\end{table}
 
 
-%\lars{a diagram like Fig.~\ref{fig:choice} might be easier to grasp than a table; @Eduard do you think the reduction to two dimensions fits the problem?}\prasad{the graph is better and is an equivalent representation to table.}
+%\lars{a diagram like \cref{fig:choice} might be easier to grasp than a table; @Eduard do you think the reduction to two dimensions fits the problem?}\prasad{the graph is better and is an equivalent representation to table.}
 
 % \begin{figure}
 % \input{images/implementation_types}
