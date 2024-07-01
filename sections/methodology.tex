@@ -1,9 +1,8 @@
 \section{Methodology}\label{sec:methodology}
-Integrating runtime verification with DTs requires connecting concrete \emph{instance(s)} of the DT and concrete instance(s) of the RV monitor.
-These twin and monitor instances must be generated, managed, and linked within the platform, DTaaS, throughout their lifetime.
-Consequently, RV tool providers aiming for adoption within the DT community must understand the various approaches available for integrating the monitors, to ensure their tools are accessible and usable to the DT community.
-In this section, we present different ways of creating DTs and integrating the monitors into DTs.
-
+Integrating RV with AS requires connecting the concrete AS \textit{instance} with the concrete RV monitor instance(s).
+These instances must be generated, managed, and linked within the platform, DTaaS, throughout their lifetime.
+Consequently, AS researchers must understand the various approaches available for integrating the RV monitors.
+In this section, we present different methods for integrating the monitors into AS.
 
 \subsection{The Digital Twin Assets and Lifecycle Phases}
 \label{sec:dt-integration}
@@ -44,7 +43,7 @@ Regardless of the approach, a monitor instance must be established and linked to
 The differentiating factor lies in whether the monitor is exposed as a service and who manages its lifecycle.
 We distinguish the following approaches:
 
-\textbf{\methodone:} The RV tool, below just called ``tool'', is published as a reusable asset for the platform that generates a monitor instance used within a twin instance.		The tool merely generates the monitor instance, which afterward is completely inside the twin instance, meaning their life cycles are tied together.
+\textbf{\methodone:} The RV tool, below just called ``tool'', is published as a reusable asset for the platform that generates a monitor instance used within a twin instance. The tool merely generates the monitor instance, which afterward is completely inside the twin instance, meaning their life cycles are tied together.
 
 \textbf{\methodtwo:} The tool is published as a reusable service that is instantiated from a twin instance.
 Each twin instance manages its monitor instance as an internal service.
