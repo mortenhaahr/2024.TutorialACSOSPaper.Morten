@@ -20,3 +20,9 @@
 \usepackage{multicol}
 \usepackage{float}
 \usepackage{comment}
+
+% Minted core package
+\usepackage[cache=true, outputdir=cache, cachedir=minted-main]{minted}
+\usemintedstyle{perldoc}
+\newminted{text}{frame=single, breaklines=true, tabsize=3, autogobble, fontsize=\small}
+\newmintinline{text}{breaklines=true}

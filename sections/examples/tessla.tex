@@ -13,7 +13,7 @@ At its core, the TeSSLa monitor processes input streams and produces output stre
 A helper function (Connector) is compiled to handle the streams by connecting TeSSLa streams to sockets with which external tools can interact.
 Telegraf provides an additional layer of flexibility by adding
 \begin{itemize}
-	\item reconfigurability at runtime -- the service can be configured to automatically adapt to a changing configuration file using the \lstinline{--watch-config} flag, or simply restarted without losing the internal state of the monitor,
+	\item reconfigurability at runtime -- the service can be configured to automatically adapt to a changing configuration file using the \textinline{--watch-config} flag, or simply restarted without losing the internal state of the monitor,
 	\item data aggregation with basic statistical operations (such as count, mean, min or histograms),
 	\item stream processing for filtering or transforming data streams, and
 	\item by providing more than 200 integrations with different services and protocols to send or receive streams\footnote{\url{https://docs.influxdata.com/telegraf/v1/plugins/}}.
@@ -30,52 +30,51 @@ The \texttt{create} script prepares the system by ensuring that the necessary to
 It installs Java, Rust and Telegraf on the system, clones the repository for the incubator DT example\footnote{\url{https://github.com/INTO-CPS-Association/example_digital-twin_incubator?tab=readme-ov-file\#running-the-digital-twin}} and downloads the necessary files for the TeSSLa-Telegraf Connector\footnote{\url{https://git.tessla.io/telegraf/tessla-telegraf-connector/-/blob/master/Release/tessla-telegraf-connector.zip}}. Two files, a TeSSLa specification and a Telegraf configuration, must be provided by the user.
 
 A TeSSLa specification suitable for this scenario (shown in \cref{fig:tessla_spec_passive}) monitors two key states of the incubator: whether the lid is open and whether the energy saving mode is used, which are passed to the TeSSLa monitor via different event streams.
-The helper function \lstinline{raisingDelay} delays any change from \lstinline{false} to \lstinline{true} by three time steps without affecting changes from \lstinline{true} to \lstinline{false}.
-This function is used to define an internal data stream \lstinline{critical} that represents when the energy saving mode is expected to be active.
-If it is not, an \lstinline{alert} stream is set to \lstinline{true}.
+The helper function \textinline{raisingDelay} delays any change from \textinline{false} to \textinline{true} by three time steps without affecting changes from \textinline{true} to \textinline{false}.
+This function is used to define an internal data stream \textinline{critical} that represents when the energy saving mode is expected to be active.
+If it is not, an \textinline{alert} stream is set to \textinline{true}.
 This stream is sent back to the system.
-The \lstinline{@TelegrafIn} and \lstinline{@TelegrafOut} annotations allow the compiler to automatically create the Connector function and add to the Telegraf configuration.
+The \textinline{@TelegrafIn} and \textinline{@TelegrafOut} annotations allow the compiler to automatically create the Connector function and add to the Telegraf configuration.
 %
 \begin{figure}[ht]
-	\centering
-	\begin{lstlisting}
-include "./Telegraf.tessla"
+	\begin{textcode}
+		include "./Telegraf.tessla"
 
-@TelegrafIn("amqp_consumer","host=<hostname>", "lid_open")
-in lid_open: Events[Bool]
+		@TelegrafIn("amqp_consumer","host=<hostname>", "lid_open")
+		in lid_open: Events[Bool]
 
-@TelegrafIn("amqp_consumer","host=<hostname>",               "energy_saver_on")
-in energy_saver: Events[Bool]
+		@TelegrafIn("amqp_consumer","host=<hostname>", "energy_saver_on")
+		in energy_saver: Events[Bool]
 
-def delayedOpen = raisingDelay(lid_open, 3)
-def critical = lid_open && delayedOpen
-def alert = critical && !energy_saver
+		def delayedOpen = raisingDelay(lid_open, 3)
+		def critical = lid_open && delayedOpen
+		def alert = critical && !energy_saver
 
-@TelegrafOut("alert")
-out alert
+		@TelegrafOut("alert")
+		out alert
 
-def raisingDelay(e: Events[Bool], d: Int): Events[Bool] = merge3(false, const(true, delay(const(d,      boolFilter(e)), e)), const(false, falling(e)))
-	\end{lstlisting}
+		def raisingDelay(e: Events[Bool], d: Int):
+		Events[Bool] = merge3(false, const(true, delay(const(d, boolFilter(e)), e)), const(false, falling(e)))
+	\end{textcode}
 	\caption{a TeSSLa specification for the passive monitor}
 	\label{fig:tessla_spec_passive}
 \end{figure}%
 %
 The Telegraf configuration consists of two parts -- where to connect to external data sources and sinks (RabbitMQ in this case), and how to connect to the TeSSLa monitor.
 The first has to be specified manually, as it changes from case to case.
-Here it configures the AMQP plugin to connect to the RabbitMQ server, subscribe to the topics \lstinline{incubator.diagnosis.plant.lidopen} as well as \lstinline{incubator.energysaver.status} and publish the monitor verdict to the topic \lstinline{incubator.energysaver.alert}.
+Here it configures the AMQP plugin to connect to the RabbitMQ server, subscribe to the topics \textinline{incubator.diagnosis.plant.lidopen} as well as \textinline{incubator.energysaver.status} and publish the monitor verdict to the topic \textinline{incubator.energysaver.alert}.
 
 The \texttt{execute} script uses the following command to add the configuration of how to communicate with the TeSSLa monitor to the supplied Telegraf configuration, create and run the Connector helper function, and compile as well as run the monitor.%
 %
 \begin{figure}[ht]
-	\centering
-	\begin{lstlisting}
-./TesslaTelegrafConnector -i ./incubator.tessla -c ./telegraf.conf -r
-	\end{lstlisting}
+	\begin{textcode}
+		./TesslaTelegrafConnector -i ./incubator.tessla -c ./telegraf.conf -r
+	\end{textcode}
 	\caption{Command used within execute lifecycle script.}
 \end{figure}%
 
 %
-The script then starts the Telegraf service with \lstinline{systemctl start telegraf}. This procedure allows data flow to and from the RabbitMQ broker, facilitating the collection, processing and monitoring of sensor data.
+The script then starts the Telegraf service with \textinline{systemctl start telegraf}. This procedure allows data flow to and from the RabbitMQ broker, facilitating the collection, processing and monitoring of sensor data.
 
 The \texttt{terminate} script stops the Telegraf service as well as the TeSSLa monitor and removes all temporary files.
 
@@ -89,14 +88,13 @@ By adding this post-processing step to Telegraf\footnote{
 	Telegraf first introduced the JSON transformation feature in version 1.24, which has not yet been widely distributed to package repositories.
 }, the user is able to change the formatting or desired temperature setting in the running system by changing the configuration without recompiling the monitor or losing its internal state.%
 %
-\begin{figure}[H]
-	\begin{lstlisting}
-transform = '{"temperature_desired": fields.value ? 21 : 35}'
-    \end{lstlisting}
+\begin{figure}[ht]
+	\begin{textcode}
+		transform = '{"temperature_desired": fields.value ? 21 : 35}'
+	\end{textcode}
 	\caption{Telegraf JSON transformation}
 	\label{fig:telegraf_json_transformation}
-\end{figure}
-
+\end{figure}%
 
 
 

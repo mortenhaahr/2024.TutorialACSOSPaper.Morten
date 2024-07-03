@@ -3,20 +3,20 @@
 The vision of autonomic computing inspired new approaches to designing flexible Autonomous Systems (AS) capable of adapting to dynamic environments \cite{kephartVisionAutonomicComputing2003}.
 Initially, research on AS primarily focused on reducing the complexity of large-scale software systems, which often comprise tens of millions of lines of code, particularly within purely software-based environments such as cloud computing.
 Since then, the field has advanced significantly, extending its concepts to new domains including cyber-physical systems, robotics, business process management, and security \morten{Insert cites}.
-However, the adaptability of these systems presents significant challenges in consistently maintaining key properties.
+However, the adaptability of these systems presents significant challenges in ensuring that key properties of the system are consistently met.
 As a concrete motivational example, within the domain of robotics, there is a critical need for flexible self-adaptive robots that can operate reliably despite dynamic environmental changes.
 Nevertheless, the safety of human life must never be compromised, and ensuring that these robots adhere to safety standards despite their self-adaptivity remains an ongoing challenge.
 Research addressing these challenges, such as \morten{Cheng AC-ROS, and additional citations}, involves formulating and validating the adherence to requirements at runtime using RV.
 Similar requirements for continuous monitoring of system properties are present in other domains utilizing AS.
 Consequently, self-adaptivity can be considered as the component that increases the system's set of possible behaviors, while RV serves as the component that ensures unwanted behaviors are excluded from this set.
 
-The tutorial focuses on how researchers within the AS community can utilize RV to ensure the correct behavior of their systems.
+The tutorial focuses on how researchers within the AS community can utilize RV tools within their work to ensure the correctness of their systems.
+In doing so, emphasis is placed on the different ways that RV tools can be integrated within a deployment platform and utilized by the existing system.
 Through this process, we aim that attendees will become familiar with how services are deployed, as well as gain practical insight into how to build monitoring services.
 The tutorial adopts a hands-on approach, utilizing the Incubator case study \cite{Feng2021, Feng2022}, which features a Digital Twin (DT) capable of self-configuring during anomalous situations.
 Although the tutorial is presented within the context of a DT, the majority of the concepts discussed extend beyond this specific application.
 Through the Incubator, we explore five different scenarios for integrating an RV tool within an existing AS, all of which are supported by the Digital Twin as a Service (DTaaS) platform (detailed in \cref{sec:background}).
 
 The tutorial is structured as follows: \cref{sec:background} introduces the main background concepts for following the tutorial.
-Afterward, \cref{sec:methodology} provides a methodology suggesting how one can incorporate RV technologies for AS, exemplified through the DTaaS platform.
-Then \cref{sec:examples} presents five distinct examples showcasing the implementation of monitoring in the using two different RV frameworks.
+Then \cref{sec:examples} presents five distinct examples showcasing the implementation of monitoring using two different RV frameworks.
 Finally, \cref{sec:conclude} provides a few concluding remarks about the potential presented here.
