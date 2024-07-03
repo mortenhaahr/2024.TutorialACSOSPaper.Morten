@@ -1,16 +1,16 @@
 \section{Background}\label{sec:background}
 
 \subsection{Runtime Verification}
-Runtime verification as a lightweight method of improving the integrity of deployed systems, and focuses on augmenting a system with additional monitoring functionality, in order to avoid unintended behavior at runtime.
+RV is a lightweight method of improving the integrity of deployed systems, and focuses on augmenting a system with additional monitoring functionality, in order to avoid unintended behavior at runtime.
 This is accomplished through a variety of monitoring techniques, which check whether a system conforms to specifications based on traces or streams of data from the running system.
 
-A wide range of runtime verification methods have been developed over the years, offering a variety of different specification languages for expressing the desired behavior of the system including temporal logics such as Linear Temporal Logic (LTL)~\cite{pnueli1977ltl} and Signal Temporal Logic (STL)~\cite{donze2013stl} as well as domain-specific languages such as TeSSLa~\cite{convent2018tessla}.
+A wide range of RV methods have been developed over the years, offering a variety of different specification languages for expressing the desired behavior of the system including temporal logics such as Linear Temporal Logic (LTL)~\cite{pnueli1977ltl} and Signal Temporal Logic (STL)~\cite{donze2013stl} as well as domain-specific languages such as TeSSLa~\cite{convent2018tessla}.
 
-Runtime verification also encompasses both passive monitoring techniques which focus on detecting errors without changing the behavior of the system, as well as more active techniques (also known as \emph{runtime enforcement}~\cite{falcone2010runtimeenforcement}) which aim to block or correct bad behaviors.
+RV also encompasses both passive monitoring techniques which focus on detecting errors without changing the behavior of the system, as well as more active techniques (also known as \emph{runtime enforcement}~\cite{falcone2010runtimeenforcement}) which aim to block or correct bad behaviors.
 
 \subsection{NuRV}
 
-NuRV~\cite{CimattiTT19a}\footnote{\url{https://nurv.fbk.eu}} is an extension of the nuXmv model checker for assumption-based LTL runtime verification with partial observability and resets. Monitoring formulas are specified in LTL while assumptions are in SMV. Thanks to the assumption, the output of the monitor can be conclusive also if the formula contains future operators or if not all variables are observable.
+NuRV~\cite{CimattiTT19a}\footnote{\url{https://nurv.fbk.eu}} is an extension of the nuXmv model checker for assumption-based LTL RV with partial observability and resets. Monitoring formulas are specified in LTL while assumptions are in SMV. Thanks to the assumption, the output of the monitor can be conclusive also if the formula contains future operators or if not all variables are observable.
 
 The tool provides commands for online/offline monitoring and code generation into standalone monitor code. Using the online/offline monitor, LTL properties can be verified incrementally on finite traces from the system under scrutiny. The code generation currently supports C, C++, Common Lisp, and Java, and is extensible. Furthermore, from the same internal monitor automaton, the monitor can be generated into SMV modules, whose characteristics can be verified by Model Checking using nuXmv. Finally, the monitor can be generated as an FMU for co-simulation with the monitored system.
 
@@ -28,8 +28,6 @@ One of the architectural principles used in the development of DTaaS is to conce
 Within DTaaS, data, models~\cite{Zambrano&22}, tools~\cite{qi2021enabling}, services~\cite{budiardjo2021digital,robles2023opentwins} and ready to use DTs~\cite{aziz2023distributed} have been identified as reusable assets.
 The DT Assets software container provides an interface to perform create, reuse, update, and delete operations on the reusable stored within the DTaaS.
 
-\morten{Help with finding a spot, acknowledging Prasad's work on identifying differences between build and use workflows: \cite{Prasad&21a}}
-
 Users utilizing DTaaS have private workspaces in which they can build and use systems, from where they can access assets as a regular part of the filesystem.
 All workspaces have internet access thereby enabling the integration of DTs running inside workspaces with external software systems.
 
@@ -40,7 +38,7 @@ These services include the run-time services provided by TeSSLa and NuRV.
 
 \subsection{FMI-based Co-simulation}
 \label{sc:fmi}
-Integrating verification methods early in development ensures system correctness from the start.
+Integrating verification methods early in development ensures system correctness from the start \cite{Prasad&21a}.
 One approach is \textit{co-simulation}, which combines multiple simulation tools into a single simulation~\cite{Gomes2018,Kubler2000}.
 Co-simulation is crucial for modeling complex systems co-developed by multiple organizations and systems whose complexity transcends the capabilities of any single simulation tool.
 

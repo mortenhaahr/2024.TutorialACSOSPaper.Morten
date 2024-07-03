@@ -1,9 +1,9 @@
 \section{Example integrations}\label{sec:examples}
 
-Below five distinct examples showcasing the implementation of monitoring in the DTaaS platform are presented:  three utilizing NuRV and two utilizing TeSSLa.
-For NuRV, the first example demonstrates a scenario where the components of a self-adaptive DT are validated before deployment.
-This involves exporting the NuRV specification as an FMU and conducting co-simulations with the other components of the DT.
-In the second example, the reusability of the FMU within a service-oriented architecture is demonstrated, enabling runtime verification on the deployed DT.
+Below five distinct examples showcasing the RV integration into the AS are presented: three utilizing NuRV and two utilizing TeSSLa.
+For NuRV, the first example demonstrates a scenario where the components of a self-adaptive DT are validated before the system is deployed.
+This involves exporting the NuRV specification as an FMU and conducting co-simulations with the other components of the system.
+In the second example, the reusability of the FMU within a service-oriented architecture is demonstrated, enabling RV on the deployed system.
 It listens to real-time sensing data sent by the Physical Twin (PT), i.e., the physical counterpart of the system, through RabbitMQ to the DT, evaluating the truth value of LTL formulas.
 In the third example, the NuRV specification is deployed on a standalone server, with its services exposed to the DT.
 As a result, it is uncoupled from the DT instance.
