@@ -2,13 +2,13 @@
 
 The vision of autonomic computing inspired new approaches to designing flexible Autonomous Systems (AS) capable of adapting to dynamic environments \cite{kephartVisionAutonomicComputing2003}.
 Initially, research on AS primarily focused on reducing the complexity of large-scale software systems, which often comprise tens of millions of lines of code, particularly within purely software-based environments such as cloud computing.
-Since then, the field has advanced significantly, extending its concepts to new domains including cyber-physical systems, robotics, business process management, and security \morten{Insert cites}.
+Since then, the field has advanced significantly, extending its concepts to new domains including dynamic software architectures \cite{Albassam:2017:DARE}, robotics \cite{Cheng:2020:ACROS}, business process management \cite{malburgApplyingMAPEKControl2023}, and cyber-security \cite{Papamartzivanos:2019:ItrusionDetection}.
 However, the adaptability of these systems presents significant challenges in ensuring that key properties of the system are consistently met.
 As a concrete motivational example, within the domain of robotics, there is a critical need for flexible self-adaptive robots that can operate reliably despite dynamic environmental changes.
 Nevertheless, the safety of human life must never be compromised, and ensuring that these robots adhere to safety standards despite their self-adaptivity remains an ongoing challenge.
-Research addressing these challenges, such as \morten{Cheng AC-ROS, and additional citations}, involves formulating and validating the adherence to requirements at runtime using Runtime Verification (RV).
+Research addressing these challenges, such as \cite{Cheng:2020:ACROS} and \cite{jahanMAPEKMAPESACInteraction2020a}, involves formulating and validating the adherence to requirements at runtime.
 Similar requirements for continuous monitoring of system properties are present in other domains utilizing AS.
-Consequently, self-adaptivity can be considered as the component that increases the system's set of possible behaviors, while RV serves as the component that ensures unwanted behaviors are excluded from this set.
+Consequently, self-adaptivity can be considered as the component that increases the system's set of possible behaviors, while Runtime Verification (RV) serves as the component that ensures unwanted behaviors are excluded from this set.
 
 The tutorial focuses on how researchers within the AS community can utilize RV tools within their work to ensure the correctness of their systems.
 In doing so, emphasis is placed on the different ways that RV tools can be integrated within a deployment platform and utilized by the existing system.
