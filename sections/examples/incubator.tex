@@ -5,7 +5,7 @@ The objective of the Incubator is to keep the temperature inside a box close to 
 These considerations have led to the development of a DT~\cite{Feng2022}, which consists of a dynamical model of the physical components of the PT and software components capturing its controller behavior. Additionally, the DT contains a self-adaptation service that reacts to possible changes in the environment and adjusts the Incubator's objective as necessary. In order to do this, a Kalman filter estimates the state of the system and compares it to the empirical data from the sensors. As soon as a deviation is detected, the DT looks at historical data to identify the anomaly and plan accordingly.
 
 The self-adaptation service is divided into two different services: anomaly detection, which handles detecting the difference between the expected temperatures and the sensed temperatures, and energy saving, which changes the target temperature to a lower one in case the anomaly detection service has detected an opening of the lid.
-An overview of the interaction of these services and the PT can be seen at~\cref{fig:incubator}.
+An overview of the interaction of these services and the PT can be seen in~\cref{fig:incubator}.
 The runtime monitoring property that is used throughout the examples, ensures the correct combined behavior of the anomaly detection and energy saver blocks.
 The STL property can be seen below:
 \begin{equation}
