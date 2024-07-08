@@ -11,7 +11,7 @@ As an alternative to NuRV, the RV tool TeSSLa can be utilized for monitoring the
 Similar to the example presented in~\cite{TT-Connector}, the monitor consists of three parts (see \cref{fig:architecture-diagram}).
 At its core, the TeSSLa monitor processes input streams and produces output streams, but is not itself capable of integrating them into a larger system context.
 A helper function (Connector) is compiled to handle the streams by connecting TeSSLa streams to sockets with which external tools can interact.
-Telegraf provides an additional layer of flexibility by adding
+Telegraf provides an additional layer of flexibility by adding:
 \begin{itemize}
 	\item reconfigurability at runtime -- the service can be configured to automatically adapt to a changing configuration file using the \textinline{--watch-config} flag, or simply restarted without losing the internal state of the monitor,
 	\item data aggregation with basic statistical operations (such as count, mean, min or histograms),
@@ -79,9 +79,10 @@ The script then starts the Telegraf service with \textinline{systemctl start tel
 The \textinline{terminate} script stops the Telegraf service as well as the TeSSLa monitor and removes all temporary files.
 
 \subsection{TeSSLa active monitor}\label{subsec:TESLA2}
-To use TeSSLa as a monitor for runtime enforcement, the TeSSLa specification and the Telegraf configuration must be changed.
+To use TeSSLa as a monitor for runtime enforcement, the TeSSLa specification (\cref{fig:tessla_spec_passive}) and the Telegraf configuration must be changed.
 
-To adapt the TeSSLa specification to control the energy saver mode instead of monitoring, the energy saver status is no longer needed as an input and the delayed signal can be provided as an output stream to switch on the energy saver if the lid is still open. As only the rising edge is delayed, the energy saving mode is switched off as soon as the lid is closed again.
+To adapt the TeSSLa specification to control the energy saver mode instead of monitoring, the energy saver status is no longer needed as an input and the delayed signal can be provided as an output stream to switch on the energy saver if the lid is still open.
+Because only the rising edge is delayed, energy saving mode is switched off as soon as the lid closes.
 
 The notable change in the Telegraf configuration is the line shown in \cref{fig:telegraf_json_transformation} in the AMQP output plugin, which translates the boolean value for controlling the energy saving mode into the JSON format required by the Incubator.
 By adding this post-processing step to Telegraf\footnote{

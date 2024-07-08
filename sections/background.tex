@@ -1,16 +1,16 @@
 \section{Background}\label{sec:background}
 
 \subsection{Runtime Verification}
-RV is a lightweight method of improving the integrity of deployed systems, and focuses on augmenting a system with additional monitoring functionality, in order to avoid unintended behavior at runtime.
-This is accomplished through a variety of monitoring techniques, which check whether a system conforms to specifications based on traces or streams of data from the running system.
+RV is a lightweight method of improving the integrity of deployed systems, and extends a system with additional monitoring functionality to avoid unintended behavior at runtime.
+This is accomplished through a variety of monitoring techniques, which check whether a system conforms to a specification based on traces or streams of data from the running system.
 
 A wide range of RV methods have been developed over the years, offering a variety of different specification languages for expressing the desired behavior of the system including temporal logics such as Linear Temporal Logic (LTL)~\cite{pnueli1977ltl} and Signal Temporal Logic (STL)~\cite{donze2013stl} as well as domain-specific languages such as TeSSLa~\cite{convent2018tessla}.
 
-RV also encompasses both passive monitoring techniques which focus on detecting errors without changing the behavior of the system, as well as more active techniques (also known as \emph{runtime enforcement}~\cite{falcone2010runtimeenforcement}) which aim to block or correct bad behaviors.
+RV encompasses both passive monitoring techniques which focus on detecting errors without changing the behavior of the system, as well as more active techniques (also known as \emph{runtime enforcement}~\cite{falcone2010runtimeenforcement}) which aim to block or correct bad behaviors.
 
 \subsection{NuRV}
 
-NuRV~\cite{CimattiTT19a}\footnote{\url{https://nurv.fbk.eu}} is an extension of the nuXmv model checker for assumption-based LTL RV with partial observability and resets. Monitoring formulas are specified in LTL while assumptions are in SMV. Thanks to the assumption, the output of the monitor can be conclusive also if the formula contains future operators or if not all variables are observable.
+NuRV~\cite{CimattiTT19a}\footnote{\url{https://nurv.fbk.eu}} is an extension of the nuXmv model checker for assumption-based LTL RV with partial observability and resets. Monitoring formulas are specified in LTL while assumptions are specified in SMV. Thanks to the assumption, the output of the monitor can be conclusive even in cases where the formula contains future operators or if not all variables are observable.
 
 The tool provides commands for online/offline monitoring and code generation into standalone monitor code. Using the online/offline monitor, LTL properties can be verified incrementally on finite traces from the system under scrutiny. The code generation currently supports C, C++, Common Lisp, and Java, and is extensible. Furthermore, from the same internal monitor automaton, the monitor can be generated into SMV modules, whose characteristics can be verified by Model Checking using nuXmv.
 
