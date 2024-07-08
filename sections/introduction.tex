@@ -2,21 +2,21 @@
 
 The vision of autonomic computing inspired new approaches to designing flexible Autonomous Systems (AS) capable of adapting to dynamic environments \cite{kephartVisionAutonomicComputing2003}.
 Initially, research on AS primarily focused on reducing the complexity of large-scale software systems, which often comprise tens of millions of lines of code, particularly within purely software-based environments such as cloud computing.
-Since then, the field has advanced significantly, extending its concepts to new domains including dynamic software architectures \cite{Albassam:2017:DARE}, robotics \cite{Cheng:2020:ACROS}, business process management \cite{malburgApplyingMAPEKControl2023}, and cyber-security \cite{Papamartzivanos:2019:ItrusionDetection}.
-However, the adaptability of these systems presents significant challenges in ensuring that key properties of the system are consistently met.
-As a concrete motivational example, within the domain of robotics, there is a critical need for flexible self-adaptive robots that can operate reliably despite dynamic environmental changes.
+Since then, the field has advanced significantly, extending its concepts to new domains including dynamic software architectures \cite{Albassam:2017:DARE}, robotics \cite{Cheng:2020:ACROS}, business process management (BPM) \cite{malburgApplyingMAPEKControl2023}, and cyber-security \cite{Papamartzivanos:2019:ItrusionDetection}.
+However, the increasing level of adaptability makes the verification of such systems significantly more challenging.
+For instance, within the domain of robotics, there is a critical need for flexible self-adaptive robots that can operate reliably despite dynamic environmental changes.
 Nevertheless, the safety of human life must never be compromised, and ensuring that these robots adhere to safety standards despite their self-adaptivity remains an ongoing challenge.
 Research addressing these challenges, such as \cite{Cheng:2020:ACROS} and \cite{jahanMAPEKMAPESACInteraction2020a}, involves formulating and validating the adherence to requirements at runtime.
 Similar requirements for continuous monitoring of system properties are present in other domains utilizing AS.
-Consequently, self-adaptivity can be considered as the component that increases the system's set of possible behaviors, while Runtime Verification (RV) serves as the component that ensures unwanted behaviors are excluded from this set.
+Within this context, self-adaptivity can be considered as a component that increases the possible behaviors of the system, while Runtime Verification (RV) serves as the component that excludes unwanted behaviors.
 
-The tutorial focuses on how researchers within the AS community can utilize RV tools within their work to ensure the correctness of their systems.
+The purpose of the tutorial is to demonstrate how researchers within the AS community can utilize RV tools within their work to ensure the correctness of their systems.
 In doing so, emphasis is placed on the different ways that RV tools can be integrated within a deployment platform and utilized by the existing system.
-Through this process, we aim that attendees will become familiar with how services are deployed, as well as gain practical insight into how to build monitoring services.
+Through this process, we aim that attendees will become familiar with how monitoring services are deployed, as well as gain practical insight into how to build them.
 The tutorial adopts a hands-on approach, utilizing the Incubator case study \cite{Feng2021, Feng2022}, which features a Digital Twin (DT) capable of self-configuring during anomalous situations.
 Although the tutorial is presented within the context of a DT, the majority of the concepts discussed extend beyond this specific application.
 Through the Incubator, we explore five different scenarios for integrating an RV tool within an existing AS, all of which are deployed on the Digital Twin as a Service (DTaaS) platform (detailed in \cref{sec:background}).
 
 The tutorial is structured as follows: \cref{sec:background} introduces the main background concepts for following the tutorial.
-Then \cref{sec:examples} presents five distinct examples showcasing the implementation of monitoring using two different RV frameworks.
-Finally, \cref{sec:conclude} provides a few concluding remarks about the tutorial.
+Then \cref{sec:examples} presents five examples showcasing the implementation of monitoring using two different RV frameworks.
+Finally, \cref{sec:conclude} concludes the tutorial.
