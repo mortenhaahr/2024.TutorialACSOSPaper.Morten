@@ -12,7 +12,7 @@ RV also encompasses both passive monitoring techniques which focus on detecting 
 
 NuRV~\cite{CimattiTT19a}\footnote{\url{https://nurv.fbk.eu}} is an extension of the nuXmv model checker for assumption-based LTL RV with partial observability and resets. Monitoring formulas are specified in LTL while assumptions are in SMV. Thanks to the assumption, the output of the monitor can be conclusive also if the formula contains future operators or if not all variables are observable.
 
-The tool provides commands for online/offline monitoring and code generation into standalone monitor code. Using the online/offline monitor, LTL properties can be verified incrementally on finite traces from the system under scrutiny. The code generation currently supports C, C++, Common Lisp, and Java, and is extensible. Furthermore, from the same internal monitor automaton, the monitor can be generated into SMV modules, whose characteristics can be verified by Model Checking using nuXmv. Finally, the monitor can be generated as an FMU for co-simulation with the monitored system.
+The tool provides commands for online/offline monitoring and code generation into standalone monitor code. Using the online/offline monitor, LTL properties can be verified incrementally on finite traces from the system under scrutiny. The code generation currently supports C, C++, Common Lisp, and Java, and is extensible. Furthermore, from the same internal monitor automaton, the monitor can be generated into SMV modules, whose characteristics can be verified by Model Checking using nuXmv.
 
 \subsection{TeSSLa}
 The Temporal Stream-based Specification Language (TeSSLa)~\cite{convent2018tessla} framework\footnote{\url{https://tessla.io}} combines a language and a suite of tools designed for real-time verification of systems through data stream analysis. TeSSLa allows the declaration of input data types and the transformation of this data into new, derived streams by applying a series of defined operations. This approach enables effective monitoring of complex systems, ensuring accurate tracking and analysis without overly complex processes.
@@ -21,7 +21,7 @@ TeSSLa provides extensive libraries and supports the creation of macros. These m
 At its core, TeSSLa's strength lies in its ability to map input data to meaningful outputs, which is essential for real-time system monitoring and informed decision-making in areas such as DT technologies.
 
 \subsection{Digital Twins as a Service}
-The DTaaS platform is a collaborative platform to build, use, and share DTs.
+The DTaaS\footnote{\url{https://github.com/INTO-CPS-Association/DTaaS}} platform is a collaborative platform to build, use, and share DTs.
 It is based-off a microservices architecture with dedicated software containers\footnote{Container is a software component at level-2 of the C4 model.} for DT assets, user workspaces, platform services, a front-end website, and service router.
 
 One of the architectural principles used in the development of DTaaS is to conceive DTs as composed of reusable assets, which separate the functionality into their constituent parts.
